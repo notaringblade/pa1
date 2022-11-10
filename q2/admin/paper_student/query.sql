@@ -1,0 +1,1 @@
+SELECT student_login_info.st_name, paper_details.paper_name FROM student_login_info,paper_details,student_paper WHERE student_paper.sid=student_login_info.sid AND student_paper.pid = paper_details.pid AND student_login_info.sid = 16;
