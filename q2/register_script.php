@@ -13,15 +13,13 @@
     $que -> bindParam(5, $_POST['email']);
     $que -> bindParam(6, $_POST['address']);
     $que -> bindParam(7, $_POST['password']);
-
+    // var_dump($_POST);
     $success = $que -> execute();
 
     if($success){
         echo '<h1 style = "color: green;" > Registered Successfully </h1>';   
     }else{
-        echo '<h1 style = "color: red;" > Failed Successfully </h1>';   
+        echo '<h1 style = "color: red;" > user has already registered </h1>';   
     }
-
-    var_dump($_POST);
 
 ?>

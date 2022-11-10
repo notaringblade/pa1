@@ -90,7 +90,7 @@
         echo "<td>" .$student["email"] ."</td>";
         echo "<td>" .$student["address"] ."</td>";
         //edit
-        echo '<td><form action="../update.php" method="POST"><input type="hidden" naxampxme="sid" value="' .$student["sid"] .'">
+        echo '<td><form action="../update.php" method="POST"><input type="hidden" name="sid" value="' .$student["sid"] .'">
         <button type="submit"><i class="fa-solid fa-pen-to-square"></i></button></form></td>';
         echo "<td><a href='delete_script.php?id=" .$student["sid"] ."'><i class='fa-solid fa-trash'></i></a></td>";
         //add papers

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
 
@@ -15,7 +16,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
-    <form method="POST" action="register_script.php">
         <div>
             <input name ="st_name" type = "text" required placeholder="Enter your name">
         </div>
@@ -38,11 +38,29 @@
             <input name = "password" type = "password" required placeholder="Create a password">
         </div>
         <div>
-            <button class="btn btn-dark" name = "register" type = "submit"> Register </button>
+            <button class="btn btn-dark" onclick="sendData()"> Register </button>
         </div>
         <div>
             <a href = "login.php"> Login </a>
         </div>      
-    </form>
+
+    <script> 
+        function sendData(){
+            var st_name = $("#st_name").val();
+            var DOB = $("#DOB").val();
+            var gender = $("#gender").val();
+            var contact = $("#contact").val();
+            var email = $("#email").val();
+            var address = $("#address").val();
+            var psswd = $("#password").val();
+
+            $.ajax({
+                url: "register_script.php",
+                type: "POST",
+                data: {st_name, DOB, gender, contact, email, address, psswd},
+
+            })
+        }
+    </script>
 </body>
 </html>

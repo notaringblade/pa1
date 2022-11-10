@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <style>
+        input{
+            padding:5px;
+            margin: 10px 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="success">
+
+    </div>
+
+    <input type="text" name="name" id="name" placeholder="Enter name"> 
+
+    <input type="email" name="email" id="email" placeholder="Enter email">
+
+    <button onclick="sendData()">Execute</button>
+
+
+    <script>
+        function sendData(){
+            // var name = document.getElementById('name').value;
+            var name = $("#name").val();
+            var email = $("#email").val();
+
+            $.ajax({
+                url:"script.php",
+                type:"POST",
+                data : {name,email},
+                success: function (responseData){
+                    // alert(responseData);
+                    var data = JSON.parse(responseData);
+                    var str = "Name: " +data.name +"<br> Email: " +data.email;
+                    $("#success").html(str);
+                }
+            })
+
+        }
+    </script>
+</body>
+
+</html>
