@@ -15,7 +15,7 @@
             // $que -> bindParam(8, $_POST['semester']);
 
     $que -> execute();
-    $papers = $que -> fetch();
+    $papers = $que -> fetchAll();
 
     if($papers){
         echo "<h1 style = 'color: red'> Record Already Exists </h1> ";
