@@ -190,20 +190,20 @@ foreach($students as $student){
     function deleteData(id){
         console.log(id)
 
-        // var sid= $("#del_id").val();
-        // console.log(sid);
-        // $.ajax({
-        //     type: "POST",
-        //     url: "delete_script.php",
-        //     data: {sid},
-        //     // dataType: "json",
-        //     success: function(data){
-        //         console.log(data);
-        //         window.location = "delete_script.php";
-        //         // $("#update_success").html(data);
-        //         // $("#gawd_update_success").html("");
-        //     }
-        // })
+        var sid= id;
+        console.log(sid);
+        $.ajax({
+            type: "POST",
+            url: "delete_script.php",
+            data: {sid},
+            // dataType: "json",
+            success: function(data){
+                console.log(data);
+                window.location = "delete_script.php";
+                // $("#update_success").html(data);
+                // $("#gawd_update_success").html("");
+            }
+        })
     }
 </script>
 

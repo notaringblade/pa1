@@ -21,10 +21,18 @@
     $que -> bindParam(7, $_POST['password']);  
     $que -> bindParam(8, $_POST['sid']);  
 
+    $responseData['st_name'] = $_POST['st_name'];
+    $responseData['DOB'] = $_POST['DOB'];
+    $responseData['gender'] = $_POST['gender'];
+    $responseData['contact'] = $_POST['contact'];
+    $responseData['address'] = $_POST['address'];
+    $responseData['password'] = $_POST['password'];
+
+
 
     $success = $que -> execute();
     if($success){
-
+        json_encode($responseData);
         echo "<h1 style = 'color: green'> Your data has been updated </h1>";
         header('Location: admin/login.php');
     }else{
