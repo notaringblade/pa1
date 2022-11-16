@@ -11,7 +11,7 @@
     $que = $con -> prepare("DELETE from student_login_info  WHERE sid = ?");
 
     // $que -> bindParam(1, $_POST['password']);
-    $que -> bindParam(1, $_GET['id']);
+    $que -> bindParam(1, $_POST['sid']);
 
     // $que -> execute();
 

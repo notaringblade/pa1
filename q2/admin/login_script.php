@@ -4,24 +4,24 @@
 
     $con = new PDO("mysql:host=localhost;dbname=student_registry", $username, $password );
 
-    $que = $con -> prepare("SELECT * FROM paper_details where paper_name=? paper_code=? course_name=? semester=?");
-            $que -> bindParam(1, $_POST['paper_name']);
-            $que -> bindParam(2, $_POST['paper_code']);
-            $que -> bindParam(3, $_POST['course_name']);
-            $que -> bindParam(4, $_POST['semester']);
-            // $que -> bindParam(5, $_POST['paper_code']);
-            // $que -> bindParam(6, $_POST['semester']);
-            // $que -> bindParam(7, $_POST['paper_name']);
-            // $que -> bindParam(8, $_POST['semester']);
+    // $que = $con -> prepare("SELECT * FROM paper_details");
+    //         // $que -> bindParam(1, $_POST['paper_name']);
+    //         // $que -> bindParam(2, $_POST['paper_code']);
+    //         // $que -> bindParam(3, $_POST['course_name']);
+    //         // $que -> bindParam(4, $_POST['semester']);
+    //         // $que -> bindParam(5, $_POST['paper_code']);
+    //         // $que -> bindParam(6, $_POST['semester']);
+    //         // $que -> bindParam(7, $_POST['paper_name']);
+    //         // $que -> bindParam(8, $_POST['semester']);
 
-    $que -> execute();
-    $papers = $que -> fetchAll();
+    // $que -> execute();
+    // $papers = $que -> fetchAll();
 
-    if($papers){
-        echo "<h1 style = 'color: red'> Record Already Exists </h1> ";
+    // if($papers){
+    //     echo "<h1 style = 'color: red'> Record Already Exists </h1> ";
         
-    }else{
-
+    // }else{
+        // var_dump($_POST);
         $que2 = $con -> prepare("INSERT INTO paper_details (paper_name, paper_code, course_name, max_marks, semester) values(?,?,?,?,?) ");
         
             $que2 -> bindParam(1, $_POST['paper_name']);
@@ -37,7 +37,7 @@
             }else{
                 echo '<h1 style = "color: red;" > Paper did not register Successfully </h1>';   
             }
-    }
+    // }
 ?>
 
 

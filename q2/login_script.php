@@ -13,11 +13,12 @@
     $stmt->execute([$email]); 
     $user = $stmt->fetch();
     $i = 0;
-    $st_id = $user['sid'];
+    $st_id = "";
 
     if ($user) {
         echo '<h1 style = "color: green">  Logged in Successfully  </h1>';
         $stmt -> execute();
+        $st_id = $user['sid'];
         // var_dump($stmt -> fetchAll());
 
         $rowarray = $stmt->fetchall(PDO::FETCH_ASSOC);
@@ -80,6 +81,6 @@
         
         ?>
     </table>
-        <a href = 'update.php'> update your info </a>;
+        <a href = 'update.php'> update your info </a>
 </body>
 </html>

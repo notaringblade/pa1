@@ -8,21 +8,21 @@
 </head>
 <body>
     
-    <form method="POST" action="update_script.php">
+    <form method="POST" action="../update_script.php">
     <?php
-        $sid = $_POST['sid'];
         $username = "root";
         $password = "";
-    
+        
         $con = new PDO("mysql:host=localhost;dbname=student_registry", $username, $password );
+        // $sid = $_POST['sid'];
     
-        $que = $con -> prepare("SELECT st_name,DOB,gender,contact,email,address,password FROM student_login_info WHERE sid=?");
-        $que->bindParam(1,$sid);
+        $que = $con -> prepare("SELECT sid,st_name,DOB,gender,contact,email,address,password FROM student_login_info WHERE sid=?");
+        $que->bindParam(1,$_POST['sid']);
     
         $que->execute();
         $student = $que->fetch(PDO::FETCH_ASSOC);
 
-        echo '<input type="hidden" name="sid" value="' .$sid .'">';
+        echo '<input type="hidden" name="sid" value="' .$student['sid'] .'">';
 
         echo '<div>
             <input name="st_name" type="text" value="' .$student['st_name'] .'" required placeholder="Enter your name">
